@@ -1,4 +1,4 @@
-/*
+W/*
  * Copyright (c) InWorldz Halcyon Developers
  * Copyright (c) Contributors, http://opensimulator.org/
  *
@@ -52,11 +52,6 @@ using OpenMetaverse.StructuredData;
 using Amib.Threading;
 using System.Drawing;
 using System.Runtime.InteropServices;
-
-#if !__MonoCS__
-using System.DirectoryServices.AccountManagement;
-#endif
-
 
 namespace OpenSim.Framework
 {
@@ -186,7 +181,7 @@ namespace OpenSim.Framework
         /// <param name='password'>string</param>
         public static bool AuthenticateAsSystemUser(string username, string password)
         {
-            #if __MonoCS__
+            #if !__MonoCS__
                 // TODO: find a way to check the user info cross platform.  In the mean time better security by NOT allowing remote admin.
                 return false;
             #else
